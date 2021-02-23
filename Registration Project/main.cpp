@@ -22,6 +22,9 @@ using namespace std; // So "std::cout" may be abbreviated to "cout"
 //  GLOBAL
 //==========================================================
 const string FILE_NAME = "RegistrationData.dat";
+const int COL1 = 10;
+const int COL2 = 10;
+const int COL3 = 3;
 
 //==========================================================
 //  Struct
@@ -34,12 +37,28 @@ struct registrationDatabase
 };
 
 //==========================================================
+//  Menu
+//==========================================================
+int menuOption()
+{
+    int option;
+    
+    cout << endl;
+    cout << "Register or Log in" << endl;
+    cout << "1 - Register" << endl;
+    cout << "2 - Log in" << endl;
+    cout << "9 - Exit" << endl;
+    cin >> option;
+    cout << endl;
+    
+    return option;
+}
+
+//==========================================================
 //  Input Registration Function
 //==========================================================
-int promptRegistration(registrationDatabase registration)
+void promptRegistration(registrationDatabase registration)
 {
-    // Initialize ID
-    registration.accountID = 0;
     
     // Prompt Username & Password
     cout << "When prompted please enter a username and password" << endl;
@@ -49,7 +68,6 @@ int promptRegistration(registrationDatabase registration)
     cin >> registration.password;
     cout << endl;
     
-    return registration.accountID + 1;
 }
 
 //==========================================================
@@ -65,7 +83,16 @@ void regInfo(registrationDatabase registration)
 //==========================================================
 void outputFile(ofstream& outFile, registrationDatabase registration)
 {
+    outFile << setw(COL1) << left << "Username"
+    << setw(COL2) << left << "Password"
+    << setw(COL3) << left << "ID";
     
+    while(outFile)
+    {
+        outFile << registration.username
+        << registration.password
+        << registration.accountID;
+    }
 }
 
 //==========================================================
@@ -77,12 +104,24 @@ int main()
     // Declare variables
     registrationDatabase registration;
     ofstream outFile;
+    int menu;
 
     // Show application header
-    cout << "Welcome to Registration!" << endl;
-    cout << "------------------------" << endl << endl;
+    cout << "Welcome to Registration and Log-in!" << endl;
+    cout << "-----------------------------------" << endl << endl;
     
-    promptRegistration(registration);
+    // Call functions
+    menu = menuOption();
+    while (menu != 9)
+    {
+        if (menu == 1)
+            promptRegistration(registration);
+        if (menu == 2)
+            cout << "Log in will go here." << endl;
+        
+        menu = menuOption();
+    }
+
 
     // Show application close
     cout << "\nEnd of my Application" << endl;
