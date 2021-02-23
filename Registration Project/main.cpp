@@ -71,9 +71,9 @@ void promptRegistration(registrationDatabase registration)
 }
 
 //==========================================================
-//  Read Registration Function
+//  Encrypt Password
 //==========================================================
-void regInfo(registrationDatabase registration)
+void encryptPassword(registrationDatabase registration)
 {
     
 }
