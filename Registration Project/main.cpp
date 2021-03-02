@@ -31,9 +31,11 @@ const int COL3 = 3;
 //==========================================================
 struct registrationDatabase
 {
+    
     string username;
     string password;
     int accountID;
+    
 };
 
 //==========================================================
@@ -41,6 +43,7 @@ struct registrationDatabase
 //==========================================================
 int menuOption()
 {
+    
     int option;
     
     cout << endl;
@@ -52,16 +55,33 @@ int menuOption()
     cout << endl;
     
     return option;
+    
 }
 
 //==========================================================
-//  Input Registration Function
+//  Input Registration
 //==========================================================
 void promptRegistration(registrationDatabase registration)
 {
     
     // Prompt Username & Password
     cout << "When prompted please enter a username and password" << endl;
+    cout << "Username: ";
+    cin >> registration.username;
+    cout << "Password: ";
+    cin >> registration.password;
+    cout << endl;
+    
+}
+
+//==========================================================
+//  Input Log in
+//==========================================================
+void promptLogIn(registrationDatabase registration)
+{
+    
+    // Prompt Username & Password
+    cout << "When prompted please enter your username and password" << endl;
     cout << "Username: ";
     cin >> registration.username;
     cout << "Password: ";
@@ -83,6 +103,7 @@ void encryptPassword(registrationDatabase registration)
 //==========================================================
 void outputFile(ofstream& outFile, registrationDatabase registration)
 {
+    
     outFile << setw(COL1) << left << "Username"
     << setw(COL2) << left << "Password"
     << setw(COL3) << left << "ID";
@@ -93,6 +114,7 @@ void outputFile(ofstream& outFile, registrationDatabase registration)
         << registration.password
         << registration.accountID;
     }
+    
 }
 
 //==========================================================
@@ -116,7 +138,7 @@ int main()
     {
         if (menu == 1)
             promptRegistration(registration);
-        if (menu == 2)
+        else
             cout << "Log in will go here." << endl;
         
         menu = menuOption();
