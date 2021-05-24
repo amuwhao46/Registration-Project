@@ -22,6 +22,7 @@ using namespace std; // So "std::cout" may be abbreviated to "cout"
 //  GLOBAL
 //==========================================================
 const string FILE_NAME = "RegistrationData.dat";
+const int arrMax = 10;
 const int COL1 = 10;
 const int COL2 = 10;
 const int COL3 = 3;
@@ -96,6 +97,15 @@ void promptLogIn(registrationDatabase registration)
 void encryptPassword(registrationDatabase registration)
 {
     
+}
+
+//==========================================================
+//  Store account ID
+//==========================================================
+int accountID(int arr[], int size)
+{
+    
+    return arr[5]; // Put number for testing
 }
 
 //==========================================================
