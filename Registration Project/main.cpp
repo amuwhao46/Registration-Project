@@ -47,7 +47,7 @@ int menuOption()
     int option;
     
     cout << endl;
-    cout << "Register or Log in" << endl;
+    cout << "Register an account or Log into an existing account" << endl;
     cout << "1 - Register" << endl;
     cout << "2 - Log in" << endl;
     cout << "9 - Exit" << endl;
@@ -139,7 +139,7 @@ int main()
         if (menu == 1)
             promptRegistration(registration);
         else
-            cout << "Log in will go here." << endl;
+            promptLogIn(registration);
         
         menu = menuOption();
     }
